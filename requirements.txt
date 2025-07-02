@@ -1,0 +1,6 @@
+# requirements.txt
+youtube-search-python==1.6.0
+fastapi==0.95.2
+uvicorn==0.22.0
+httpx==0.23.0
+python-multipart==0.0.6
