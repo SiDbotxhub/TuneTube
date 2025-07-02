@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(355, 7%, 97%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* StreamTube custom colors */
+  --spotify-green: hsl(142, 76%, 36%);
+  --spotify-light-green: hsl(142, 76%, 42%);
+  --spotify-dark: hsl(0, 0%, 7%);
+  --spotify-gray: hsl(0, 0%, 12%);
+  --spotify-light-gray: hsl(0, 0%, 16%);
+  --spotify-text-gray: hsl(0, 0%, 70%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 7%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 12%);
+  --muted-foreground: hsl(0, 0%, 70%);
+  --popover: hsl(0, 0%, 7%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 12%);
+  --input: hsl(0, 0%, 12%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(0, 0%, 7%);
+  --secondary: hsl(0, 0%, 12%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 0%, 12%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .spotify-bg-dark {
+    background-color: var(--spotify-dark);
+  }
+  
+  .spotify-bg-gray {
+    background-color: var(--spotify-gray);
+  }
+  
+  .spotify-bg-light-gray {
+    background-color: var(--spotify-light-gray);
+  }
+  
+  .spotify-text-gray {
+    color: var(--spotify-text-gray);
+  }
+  
+  .spotify-green {
+    color: var(--spotify-green);
+  }
+  
+  .spotify-bg-green {
+    background-color: var(--spotify-green);
+  }
+  
+  .spotify-bg-light-green {
+    background-color: var(--spotify-light-green);
+  }
+  
+  .song-card {
+    @apply bg-card rounded-lg p-4 hover:bg-muted transition-colors duration-200 cursor-pointer relative;
+  }
+  
+  .play-button {
+    @apply absolute top-2 right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:scale-110 transform;
+  }
+  
+  .gradient-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--spotify-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--spotify-text-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--spotify-green);
+}
+
+/* Audio progress bar styling */
+.progress-bar {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-track {
+  background: var(--spotify-gray);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  background: var(--spotify-green);
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.progress-bar::-moz-range-track {
+  background: var(--spotify-gray);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.progress-bar::-moz-range-thumb {
+  background: var(--spotify-green);
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
